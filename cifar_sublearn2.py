@@ -24,6 +24,7 @@ X = load_real_samples() # Dataset
 
 # define the discriminator model
 model = define_discriminator()
+
 # load image data
 dataset = load_real_samples()
 

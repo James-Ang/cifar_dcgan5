@@ -9,14 +9,20 @@ from keras.layers import Flatten
 from keras.layers import Dropout
 from keras.layers import LeakyReLU
 
+from matplotlib import pyplot
+
 # define the standalone discriminator model
 def define_discriminator(in_shape=(32,32,3)):
 	model = Sequential()
 	# normal
 	model.add(Conv2D(64, (3,3), padding='same', input_shape=in_shape))
+	# params = (3*3*3 kernel + 1 bias) * (64 filters) = 1792 params tunable
 	model.add(LeakyReLU(alpha=0.2))
+	# alpha = Negative slope coefficient. e.g --> 0.3*x if x < 0
+
 	# downsample
 	model.add(Conv2D(128, (3,3), strides=(2,2), padding='same'))
+	# params = (3*3*64 kernel + 1 bias) * (128 filters) = 73,856 params tunable
 	model.add(LeakyReLU(alpha=0.2))
 	# downsample
 	model.add(Conv2D(128, (3,3), strides=(2,2), padding='same'))
@@ -70,7 +76,7 @@ def generate_fake_samples_off(n_samples):
 	y = zeros((n_samples, 1))
 	return X, y
 
-# train the discriminator model
+# train the discriminator model only
 def train_discriminator(model, dataset, n_iter=20, n_batch=128):
 	half_batch = int(n_batch / 2)
 	# manually enumerate epochs
@@ -102,9 +108,11 @@ def define_generator(latent_dim):
 	model.add(Reshape((4, 4, 256)))
 	# upsample to 8x8
 	model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
+	# params = (4*4*256('256 from input') kernel + 1 bias) * (128 filters) = 524,416 params tunable. Does not depend on stride.
 	model.add(LeakyReLU(alpha=0.2))
 	# upsample to 16x16
 	model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
+	# params = (4*4*128('128 from input') kernel + 1 bias) * (128 filters) = 262,272 params tunable
 	model.add(LeakyReLU(alpha=0.2))
 	# upsample to 32x32
 	model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
@@ -112,14 +120,6 @@ def define_generator(latent_dim):
 	# output layer
 	model.add(Conv2D(3, (3,3), activation='tanh', padding='same'))
 	return model
-
-# generate points in latent space as input for the generator
-def generate_latent_points(latent_dim, n_samples):
-	# generate points in the latent space
-	x_input = randn(latent_dim * n_samples)
-	# reshape into a batch of inputs for the network
-	x_input = x_input.reshape(n_samples, latent_dim)
-	return x_input
 
 # generate points in latent space as input for the generator
 def generate_latent_points(latent_dim, n_samples):
@@ -215,5 +215,91 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=200, n_batc
 			print('>%d, %d/%d, d1=%.3f, d2=%.3f g=%.3f' %
 				(i+1, j+1, bat_per_epo, d_loss1, d_loss2, g_loss))
 		# evaluate the model performance, sometimes
-		if (i+1) % 10 == 0:
+		if (i+1) % 3 == 0:
 			summarize_performance(i, g_model, d_model, dataset, latent_dim)
+
+# example of calculating the frechet inception distance
+import numpy
+from numpy import cov
+from numpy import trace
+from numpy import asarray
+from numpy.random import randint
+from numpy import iscomplexobj
+from numpy.random import random
+from scipy.linalg import sqrtm
+
+# calculate frechet inception distance
+def calculate_fid1(act1, act2):
+	# calculate mean and covariance statistics
+	mu1, sigma1 = act1.mean(axis=0), cov(act1, rowvar=False)
+	mu2, sigma2 = act2.mean(axis=0), cov(act2, rowvar=False)
+	# calculate sum squared difference between means
+	ssdiff = numpy.sum((mu1 - mu2)**2.0)
+	# calculate sqrt of product between cov
+	covmean = sqrtm(sigma1.dot(sigma2))
+	# check and correct imaginary numbers from sqrt
+	if iscomplexobj(covmean):
+		covmean = covmean.real
+	# calculate score
+	fid = ssdiff + trace(sigma1 + sigma2 - 2.0 * covmean)
+	return fid
+
+from skimage.transform import resize
+# scale an array of images to a new size
+def scale_images(images, new_shape):
+	images_list = list()
+	for image in images:
+		# resize with nearest neighbor interpolation
+		new_image = resize(image, new_shape, 0)
+		# store
+		images_list.append(new_image)
+	return asarray(images_list)
+
+# calculate frechet inception distance
+def calculate_fid(model, images1, images2):
+	# calculate activations
+	act1 = model.predict(images1)
+	act2 = model.predict(images2)
+	# calculate mean and covariance statistics
+	mu1, sigma1 = act1.mean(axis=0), cov(act1, rowvar=False)
+	mu2, sigma2 = act2.mean(axis=0), cov(act2, rowvar=False)
+	# calculate sum squared difference between means
+	ssdiff = numpy.sum((mu1 - mu2)**2.0)
+	# calculate sqrt of product between cov
+	covmean = sqrtm(sigma1.dot(sigma2))
+	# check and correct imaginary numbers from sqrt
+	if iscomplexobj(covmean):
+		covmean = covmean.real
+	# calculate score
+	fid = ssdiff + trace(sigma1 + sigma2 - 2.0 * covmean)
+	return fid
+
+
+# plot the generated images
+def create_plot(examples, n):
+	# plot images
+	pyplot.figure(figsize=(15,15))
+	for i in range(n * n):
+		# define subplot
+		pyplot.subplot(n, n, 1 + i)
+		# turn off axis
+		pyplot.axis('off')
+		# plot raw pixel data
+		pyplot.imshow(examples[i, :, :])
+	pyplot.show()
+
+def save_generated_image(X):
+	# X.min(), X.max()
+	Y = X* 127.5 + 127.5
+	Y = Y.astype('uint8')
+	# Y.min(), Y.max()
+
+	for i in range(len(Y)):
+
+	    pyplot.imsave(f'test/generated{i}.jpg',Y[i])
+
+def save_original_image(images1):
+
+	for i in range(len(images1)):
+
+	    plt.imsave(f'original/cifar_ori{i}.jpg',images1[i])
