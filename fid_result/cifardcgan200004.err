@@ -1,0 +1,55 @@
+2021-05-22 09:41:37.398416: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-05-22 09:42:54.774885: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-05-22 09:42:54.782385: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-05-22 09:42:54.862606: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:04:00.0 name: Tesla K40c computeCapability: 3.5
+coreClock: 0.745GHz coreCount: 15 deviceMemorySize: 11.92GiB deviceMemoryBandwidth: 268.58GiB/s
+2021-05-22 09:42:54.863911: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 1 with properties: 
+pciBusID: 0000:82:00.0 name: Tesla K40c computeCapability: 3.5
+coreClock: 0.745GHz coreCount: 15 deviceMemorySize: 11.92GiB deviceMemoryBandwidth: 268.58GiB/s
+2021-05-22 09:42:54.863973: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-05-22 09:42:55.959900: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-05-22 09:42:55.960099: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-05-22 09:42:56.903463: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-05-22 09:42:57.340931: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-05-22 09:42:58.554184: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-05-22 09:42:58.759129: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-05-22 09:43:00.287910: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-05-22 09:43:00.294667: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0, 1
+2021-05-22 09:43:00.295989: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-05-22 09:43:00.441611: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:04:00.0 name: Tesla K40c computeCapability: 3.5
+coreClock: 0.745GHz coreCount: 15 deviceMemorySize: 11.92GiB deviceMemoryBandwidth: 268.58GiB/s
+2021-05-22 09:43:00.442457: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 1 with properties: 
+pciBusID: 0000:82:00.0 name: Tesla K40c computeCapability: 3.5
+coreClock: 0.745GHz coreCount: 15 deviceMemorySize: 11.92GiB deviceMemoryBandwidth: 268.58GiB/s
+2021-05-22 09:43:00.442498: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-05-22 09:43:00.442538: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-05-22 09:43:00.442565: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-05-22 09:43:00.442591: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-05-22 09:43:00.442616: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-05-22 09:43:00.442641: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-05-22 09:43:00.442667: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-05-22 09:43:00.442708: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-05-22 09:43:00.445632: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0, 1
+2021-05-22 09:43:00.445681: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-05-22 09:43:02.466001: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-05-22 09:43:02.466099: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 1 
+2021-05-22 09:43:02.466982: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N N 
+2021-05-22 09:43:02.467035: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 1:   N N 
+2021-05-22 09:43:02.471019: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 11328 MB memory) -> physical GPU (device: 0, name: Tesla K40c, pci bus id: 0000:04:00.0, compute capability: 3.5)
+2021-05-22 09:43:02.475447: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 11328 MB memory) -> physical GPU (device: 1, name: Tesla K40c, pci bus id: 0000:82:00.0, compute capability: 3.5)
+2021-05-22 09:43:02.475647: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+2021-05-22 09:43:03.334510: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-05-22 09:43:03.384609: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2099860000 Hz
+2021-05-22 09:43:03.722461: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-05-22 09:43:04.776902: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-05-22 09:43:08.367228: W tensorflow/stream_executor/gpu/asm_compiler.cc:63] Running ptxas --version returned 256
+2021-05-22 09:43:08.392986: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: ptxas exited with non-zero error code 256, output: 
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+2021-05-22 09:45:58.612104: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 21456240000 exceeds 10% of free system memory.
+2021-05-22 09:52:53.925733: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 21456240000 exceeds 10% of free system memory.

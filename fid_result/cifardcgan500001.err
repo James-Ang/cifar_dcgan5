@@ -1,0 +1,45 @@
+2021-05-22 01:42:45.183116: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-05-22 01:42:49.864605: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-05-22 01:42:50.080959: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-05-22 01:42:50.241084: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:08:00.0 name: Tesla K10.G2.8GB computeCapability: 3.0
+coreClock: 0.745GHz coreCount: 8 deviceMemorySize: 3.44GiB deviceMemoryBandwidth: 149.01GiB/s
+2021-05-22 01:42:50.242328: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 1 with properties: 
+pciBusID: 0000:09:00.0 name: Tesla K10.G2.8GB computeCapability: 3.0
+coreClock: 0.745GHz coreCount: 8 deviceMemorySize: 3.44GiB deviceMemoryBandwidth: 149.01GiB/s
+2021-05-22 01:42:50.243468: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 2 with properties: 
+pciBusID: 0000:86:00.0 name: Tesla K10.G2.8GB computeCapability: 3.0
+coreClock: 0.745GHz coreCount: 8 deviceMemorySize: 3.44GiB deviceMemoryBandwidth: 149.01GiB/s
+2021-05-22 01:42:50.244589: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 3 with properties: 
+pciBusID: 0000:87:00.0 name: Tesla K10.G2.8GB computeCapability: 3.0
+coreClock: 0.745GHz coreCount: 8 deviceMemorySize: 3.44GiB deviceMemoryBandwidth: 149.01GiB/s
+2021-05-22 01:42:50.245711: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 4 with properties: 
+pciBusID: 0000:8a:00.0 name: Tesla K10.G2.8GB computeCapability: 3.0
+coreClock: 0.745GHz coreCount: 8 deviceMemorySize: 3.44GiB deviceMemoryBandwidth: 149.01GiB/s
+2021-05-22 01:42:50.246833: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 5 with properties: 
+pciBusID: 0000:8b:00.0 name: Tesla K10.G2.8GB computeCapability: 3.0
+coreClock: 0.745GHz coreCount: 8 deviceMemorySize: 3.44GiB deviceMemoryBandwidth: 149.01GiB/s
+2021-05-22 01:42:50.246879: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-05-22 01:42:50.252074: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-05-22 01:42:50.252138: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-05-22 01:42:50.255378: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-05-22 01:42:50.257083: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-05-22 01:42:50.260656: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-05-22 01:42:50.262622: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-05-22 01:42:50.268707: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-05-22 01:42:50.276713: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1816] Ignoring visible gpu device (device: 0, name: Tesla K10.G2.8GB, pci bus id: 0000:08:00.0, compute capability: 3.0) with Cuda compute capability 3.0. The minimum required Cuda capability is 3.5.
+2021-05-22 01:42:50.277884: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1816] Ignoring visible gpu device (device: 1, name: Tesla K10.G2.8GB, pci bus id: 0000:09:00.0, compute capability: 3.0) with Cuda compute capability 3.0. The minimum required Cuda capability is 3.5.
+2021-05-22 01:42:50.279020: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1816] Ignoring visible gpu device (device: 2, name: Tesla K10.G2.8GB, pci bus id: 0000:86:00.0, compute capability: 3.0) with Cuda compute capability 3.0. The minimum required Cuda capability is 3.5.
+2021-05-22 01:42:50.280185: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1816] Ignoring visible gpu device (device: 3, name: Tesla K10.G2.8GB, pci bus id: 0000:87:00.0, compute capability: 3.0) with Cuda compute capability 3.0. The minimum required Cuda capability is 3.5.
+2021-05-22 01:42:50.281298: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1816] Ignoring visible gpu device (device: 4, name: Tesla K10.G2.8GB, pci bus id: 0000:8a:00.0, compute capability: 3.0) with Cuda compute capability 3.0. The minimum required Cuda capability is 3.5.
+2021-05-22 01:42:50.282468: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1816] Ignoring visible gpu device (device: 5, name: Tesla K10.G2.8GB, pci bus id: 0000:8b:00.0, compute capability: 3.0) with Cuda compute capability 3.0. The minimum required Cuda capability is 3.5.
+2021-05-22 01:42:50.282916: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-05-22 01:42:50.283129: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-05-22 01:42:50.283175: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      
+2021-05-22 01:42:50.283230: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+2021-05-22 01:42:50.686335: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-05-22 01:42:50.687090: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2600010000 Hz
+/var/spool/slurmd/job45622/slurm_script: line 30: 13689 Killed                  python generate_images.py
+slurmstepd: error: Detected 1 oom-kill event(s) in step 45622.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
